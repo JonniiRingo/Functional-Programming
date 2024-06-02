@@ -1,0 +1,96 @@
+Instead of thinking about what to do, in functional programing we focus on evaluating a thing.
+
+So functional programming is an r value programming paradigm. 
+
+So functioal programming is another of programming and is translatable to other programming languages as new technpologies emerge
+
+We starting talkimng about containers algorithms etc and now we are going to focus on callables 
+
+Function objects you can call an operator like as if it was a function?
+
+Thats why you dont call it a function you call it a callable because it could be a functinon or it could be functor 
+
+
+The functor here has a state called limit.
+
+You're not going to pass in a parameter with const reference and then change it 
+
+There is no side effect. A  side effect is a seperate behavior or instruction that has nothing to do with the input or output of the function itself. 
+
+
+The other benefit is that there is a lazy evaluatiuon which means it doesnt compute the value of the expression until you need it
+
+higher order functions indicate that there are multiple levels of abstraction within functional programming etc.
+
+This lecture is right after the algorithm STL videos and you should probably transfer your 
+
+written notes to vscode or rewatch the lecture and capture all the code examples from the lecture and have the program
+
+
+run with no errors etc so when you get to a project that requires the use of that concept you can 
+
+easily look up a working example. 
+
+in c++ 20 there is such a thing called ranges and just as efficient as loops 
+
+Ranges is a new concept that allows you to do the same thing as loops with less code and as or event more efficiency 
+
+The iterators dont directly allow you to take the output of one thing and pass it into the next thing 
+
+because there are iterators that are acting as intermediaries and then you have to get that thing and then go through a whole complicated process to capture its value 
+
+and pass it into the next function 
+
+
+
+STL Algorithms
+
+What we'll cover:
+- Functions
+- auto return type
+- Trailing return types
+- Pointers to functions
+- Inlining functions
+- Function Objects
+- Lambda Expressions - anonymous
+
+Function Objects:
+A function object is an object that can be called as if it were a function.
+Example:
+class function_object {
+public:
+    return_type operator() (arguments) const {
+        // function body
+    }
+};
+
+Function Objects:
+Here's an example of a function object that checks if a person is older than a certain age:
+class older_than {
+public:
+    older_than(int limit) : m_limit(limit) {}
+
+    bool operator() (const person_t& person) const {
+        return person.age() > m_limit;
+    }
+
+private:
+    int m_limit;
+};
+
+Lambda Expressions:
+Lambda expressions are a concise way to create simple function objects.
+Syntax:
+[a, &b] (int x, int y) { return a * x + b * y; }
+
+Lambda Head Syntax:
+- [a, &b]: a is captured by value, and b is captured by reference.
+- []: A lambda that doesn't use any variable from the surrounding scope. These lambdas don't have any internal state and can be implicitly cast to ordinary function pointers.
+- [&]: Captures all variables that are used in the lambda body by reference.
+- [=]: Captures all variables that are used in the lambda body by value.
+- [this]: Captures the this pointer by value.
+- [&, a]: Captures all variables by reference, except a, which is captured by value.
+- [=, &b]: Captures all variables by value, except b, which is captured by reference.
+
+
+        
